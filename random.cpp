@@ -1,17 +1,12 @@
 #include <iostream>
+#include <ctime>
 
-    int main(){
-            int number;
-        
-            srand(time(NULL)); // seed the random number generator  
-        for(int i = 0; i < 10; i++)
-        {
-            
-            number = rand() % (50 - 40 + 1) + 40; // generate a random number between 1 and 100
-  
-            std::cout<<  number <<std::endl;
-        }
-    
+int main() {
+    std::time_t rawtime;
+    std::time(&rawtime);
 
-        return 0;
-    }
+    // Use std::cout instead of printf
+    std::cout << "The current local time is: " << std::ctime(&rawtime);
+
+    return 0;
+}
